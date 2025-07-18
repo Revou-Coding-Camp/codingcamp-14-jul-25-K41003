@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Company Website</title>
+  <!-- Removed old CSS link -->
+  
+  <!-- Add Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <!-- Bottom sheet overlay for name input -->
+  <div id="landing-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-end justify-center p-4">
+    <div class="bg-white w-full max-w-4xl rounded-t-lg p-6 shadow-lg">
+      <h2 class="text-xl font-semibold mb-4">Please enter your name to continue</h2>
+      <div class="flex flex-col sm:flex-row items-center gap-3 w-full">
+        <input type="text" id="landingNameInput" placeholder="Enter your name" class="border border-black p-2 flex-grow" />
+        <button id="landingSubmitBtn" class="px-4 py-2 border border-black rounded hover:bg-gray-200">Submit</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="main-content" class="hidden">
+    <header class="flex justify-between items-center p-2.5 border border-black">
+      <div class="logo ml-5 w-10 h-10 border border-black rounded-full overflow-hidden">
+      <img src="images/logo.png" alt="Kaitze" class="w-full h-full object-cover rounded-full" />
+      </div>
+      <nav class="mr-5 flex gap-2">
+      <button class="border border-black px-3 py-1 rounded-sm" onclick="showSection('home')">Home</button>
+      <button class="border border-black px-3 py-1 rounded-sm" onclick="showSection('profile')">Our Profile</button>
+      <button class="border border-black px-3 py-1 rounded-sm" onclick="showSection('portfolio')">Portfolio</button>
+      <button class="border border-black px-3 py-1 rounded-sm" onclick="showSection('message')">Message Us</button>
+      </nav>
+    </header>
+
+  <div id="home" class="p-5 border-b border-black">
+    <h2 id="welcome" class="font-semibold text-lg">Hi <span id="username">Name</span>, Welcome To Website</h2>
+    <p class="text-sm">Ini adalah website latihan pertama</p>
+    <img src="images/banner.jpg" alt="Banner" class="w-full max-h-[578px] object-cover" />
+    <section class="headquarter p-5 border-b border-black">
+      <h3 class="font-semibold mb-3">Our Headquarter</h3>
+      <div class="headquarters flex justify-center gap-12 mt-5">
+        <div class="hq-item text-center">
+          <div class="flex gap-12 justify-center">
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 border border-black rounded-full mb-2.5"></div>
+              <span class="text-sm font-medium">Jakarta</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 border border-black rounded-full mb-2.5"></div>
+              <span class="text-sm font-medium">Bandung</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div class="w-24 h-24 border border-black rounded-full mb-2.5"></div>
+              <span class="text-sm font-medium">Surabaya</span>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="profile" class="hidden p-5 border-b border-black max-w-4xl mx-auto">
+    <img src="images/company_banner.jpg" alt="Company Banner" class="w-full max-h-48 object-cover rounded-md mb-5" />
+    <h2 class="text-xl font-semibold mb-3">Tentang Perusahaan</h2>
+    <p class="mb-5">Kami adalah perusahaan teknologi yang berdedikasi untuk memberikan solusi digital inovatif.</p>
+    <h3 class="text-lg font-semibold mb-2">Visi</h3>
+    <p class="mb-5">Menjadi pemimpin dalam transformasi digital di Asia Tenggara.</p>
+    <h3 class="text-lg font-semibold mb-2">Misi</h3>
+    <p>Menyediakan layanan teknologi terbaik untuk semua lapisan masyarakat dan dunia usaha.</p>
+  </div>
+
+  <div id="portfolio" class="hidden p-5 border-b border-black">
+    <h2>Our Portfolio</h2>
+    <p>Here is some of our recent work and projects.</p>
+    <!-- Add portfolio items here -->
+  </div>
+
+  <div id="message" class="hidden p-5 border-b border-black">
+    <h3 class="font-semibold mb-3">Message Us</h3>
+    <div class="message-form flex gap-5 mt-5 items-center">
+      <form onsubmit="return handleSubmit(event)" class="flex-1">
+        <label class="block mb-1">Nama :</label>
+        <input type="text" id="nama" placeholder="Nama" class="w-full p-1 mb-2.5 border border-black" /><br />
+
+        <label class="block mb-1">Tanggal Lahir :</label>
+        <input type="date" id="tgl" class="w-full p-1 mb-2.5 border border-black" /><br />
+
+        <label class="block mb-1">Jenis Kelamin :</label><br />
+        <input type="radio" name="gender" value="Laki-Laki" class="mr-1" /> Laki-Laki
+        <input type="radio" name="gender" value="Perempuan" class="mr-1" /> Perempuan<br /><br />
+
+        <label class="block mb-1">Pesan :</label><br />
+        <textarea id="pesan" rows="4" placeholder="Pesan" class="w-full p-1 mb-2.5 border border-black"></textarea><br />
+
+        <input type="submit" value="Submit" class="w-full p-2.5 border border-black bg-gray-200 hover:bg-gray-300 cursor-pointer" />
+      </form>
+
+      <div class="message-info border border-black w-24 h-72 flex-1" id="output"></div>
+    </div>
+  </div>
+
+  <footer class="text-right p-2.5 text-xs border-t border-black">
+    created by Kevin Ananta Ilyas
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
